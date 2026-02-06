@@ -5,7 +5,10 @@ namespace LaravelAiCli;
 use Illuminate\Support\ServiceProvider;
 use LaravelAiCli\Commands\{
     AskCommand,
+    DocumentCommand,
     ExplainCommand,
+    OptimizeCommand,
+    RefactorCommand,
     ReviewCommand
 };
 
@@ -19,7 +22,10 @@ class LaravelAiCliServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 AskCommand::class,
+                DocumentCommand::class,
                 ExplainCommand::class,
+                OptimizeCommand::class,
+                RefactorCommand::class,
                 ReviewCommand::class,
             ]);
         }

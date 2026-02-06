@@ -7,6 +7,9 @@ AI-powered CLI tools for Laravel using the Laravel AI SDK. This package provides
 - **Ask Agent** (`ai:ask`) - Ask AI a question about your code or any topic
 - **Explain Agent** (`ai:explain`) - Understand application errors and log files
 - **Review Agent** (`ai:review`) - Get code reviews from an AI senior engineer
+- **Optimize Agent** (`ai:optimize`) - Optimize code for performance and efficiency
+- **Refactor Agent** (`ai:refactor`) - Refactor code for better quality and maintainability
+- **Document Agent** (`ai:document`) - Generate comprehensive markdown documentation (display in terminal or save to file)
 
 ## Requirements
 
@@ -112,36 +115,101 @@ php artisan ai:explain storage/logs/laravel.log
 
 ---
 
-### ai:review
+### ai:optimize
 
 ```bash
-php artisan ai:review {file}
+php artisan ai:optimize {file}
 ```
 
 **Arguments:**
 
-- `file` - Path to the source code file to review
+- `file` - Path to the source code file to optimize
 
 **Example:**
 
 ```bash
-php artisan ai:review app/Http/Controllers/UserController.php
+php artisan ai:optimize app/Models/User.php
 ```
+
+---
+
+### ai:refactor
+
+```bash
+php artisan ai:refactor {file}
+```
+
+**Arguments:**
+
+- `file` - Path to the source code file to refactor
+
+**Example:**
+
+```bash
+php artisan ai:refactor app/Http/Controllers/ProductController.php
+```
+
+---
+
+### ai:document
+
+```bash
+php artisan ai:document {file}
+```
+
+Generates comprehensive markdown documentation. The command will prompt you to choose how to receive the documentation:
+
+**Arguments:**
+
+- `file` - Path to the source code file to document
+
+**Output Options:**
+
+1. **Display in Terminal** - View formatted markdown directly in your terminal
+2. **Save to File** - Save as `DOCUMENTATION_{filename}.md` in project root
+
+**Example:**
+
+```bash
+php artisan ai:document app/Services/PaymentService.php
+
+How would you like to receive the documentation?:
+  [0] Display in terminal
+  [1] Save to file (DOCUMENTATION_PaymentService.md)
+ > 1
+```
+
+The generated documentation includes:
+
+- Detailed overview and purpose
+- PHPDoc style comments
+- Parameter documentation
+- Usage examples with code blocks
+- Important notes and edge cases
+- Related files references
 
 ## Package Structure
 
 ```
 src/
-├── AiCliServiceProvider.php      # Service provider (auto-discovered)
+├── AiCliServiceProvider.php            # Service provider (auto-discovered)
 ├── Commands/
-│   ├── AskCommand.php            # Ask question command
-│   ├── ExplainCommand.php        # Explain errors command
-│   └── ReviewCommand.php         # Code review command
+│   ├── AskCommand.php                  # Ask question command
+│   ├── DocumentCommand.php             # Generate documentation command
+│   ├── DocumentMarkdownCommand.php     # Generate markdown documentation & save to file
+│   ├── ExplainCommand.php              # Explain errors command
+│   ├── OptimizeCommand.php             # Optimize code command
+│   ├── RefactorCommand.php             # Refactor code command
+│   └── ReviewCommand.php               # Code review command
 └── Ai/
     └── Agents/
-        ├── AskAgent.php          # AI agent for questions
-        ├── ExplainAgent.php      # AI agent for explanations
-        └── ReviewAgent.php       # AI agent for code reviews
+        ├── AskAgent.php                # AI agent for questions
+        ├── DocumentAgent.php           # AI agent for documentation (plain text)
+        ├── ExplainAgent.php            # AI agent for explanations
+        ├── MarkdownDocumentAgent.php   # AI agent for markdown documentation
+        ├── OptimizeAgent.php           # AI agent for optimization
+        ├── RefactorAgent.php           # AI agent for refactoring
+        └── ReviewAgent.php             # AI agent for code reviews
 ```
 
 ## How It Works
