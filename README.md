@@ -22,7 +22,7 @@ AI-powered CLI tools for Laravel using the Laravel AI SDK. This package provides
 ### 1. Add the Package to Your Laravel Project
 
 ```bash
-composer require laravel-ai/cli:@dev
+composer require laravel-ai/cli
 ```
 
 The package will be automatically discovered by Laravel via service provider auto-discovery.
