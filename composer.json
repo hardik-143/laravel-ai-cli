@@ -1,0 +1,24 @@
+{
+  "name": "laravel-ai/cli",
+  "description": "AI-powered CLI tools for Laravel using Laravel AI SDK",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^12.0",
+    "laravel/ai": "^0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "LaravelAiCli\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LaravelAiCli\\LaravelAiCliServiceProvider"
+      ]
+    }
+  }
+}
