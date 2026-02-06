@@ -11,6 +11,9 @@ use LaravelAiCli\Commands\{
 
 class LaravelAiCliServiceProvider extends ServiceProvider
 {
+    /**
+     * Bootstrap any package services.
+     */
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
