@@ -5,9 +5,7 @@ All notable changes to the Laravel AI CLI package will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-02-06
-
-### Added
+## [1.0.1] - 2026-02-06
 
 #### Commands
 
@@ -37,6 +35,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Plain text output with markdown only for lists (except document command)
 - Interactive documentation command (choose between terminal display or file save)
 - Input validation for all commands
+- OpenAI API integration (currently supported provider)
+- Detailed API configuration guide
+
+### Providers
+
+- **OpenAI** ✅ - Fully supported and tested
 
 ### Security
 
@@ -49,8 +53,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Planned Features
 
-- Additional code analysis commands
-- Configuration file support
-- Output formatting options
+- **Additional AI Providers** (v1.1 - v2.0):
+  - Anthropic Claude (v1.1)
+  - Google Gemini (v1.2)
+  - Cohere (v1.3)
+  - Local LLMs (v2.0)
+- Configuration file support (.airc)
+- Output formatting options (JSON, XML, etc.)
 - Batch processing capabilities
-- Integration with CI/CD pipelines
+- CI/CD pipeline integration
+- Command aliases and shortcuts
+- Custom agent creation support

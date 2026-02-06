@@ -29,15 +29,15 @@ The package will be automatically discovered by Laravel via service provider aut
 
 ### 2. Configure Your AI Provider
 
-The package uses Laravel's AI SDK. Configure your AI provider in your `.env` file:
+**Currently Supported:** OpenAI
+
+Configure your OpenAI API key in your `.env` file:
 
 ```env
-# For OpenAI
-OPENAI_API_KEY=your-api-key-here
-
-# Or for other supported providers
-AI_PROVIDER=openai
+OPENAI_API_KEY=sk-proj-your-api-key-here
 ```
+
+**Coming Soon:** More providers including Anthropic Claude, Google Gemini, and Cohere will be integrated in upcoming releases.
 
 ## Usage
 
