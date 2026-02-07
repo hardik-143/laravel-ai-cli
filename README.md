@@ -10,6 +10,8 @@ AI-powered CLI tools for Laravel using the Laravel AI SDK. This package provides
 - **Optimize Agent** (`ai:optimize`) - Optimize code for performance and efficiency
 - **Refactor Agent** (`ai:refactor`) - Refactor code for better quality and maintainability
 - **Document Agent** (`ai:document`) - Generate comprehensive markdown documentation (display in terminal or save to file)
+- **Image Generator** (`ai:image`) - Generate images from text descriptions with interactive quality and aspect ratio selection
+- **Image Modifier** (`ai:imagemod`) - Modify and enhance existing images with AI-powered transformation
 
 ## Requirements
 
@@ -75,6 +77,72 @@ Example:
 
 ```bash
 php artisan ai:review app/Models/User.php
+```
+
+### Generate Images
+
+Generate AI images from text descriptions:
+
+```bash
+php artisan ai:image "A beautiful sunset over mountains"
+```
+
+The command will prompt you to select:
+
+- **Quality**: high, medium, or low
+- **Aspect Ratio**: square, portrait, or landscape
+- **Count**: 1-4 images to generate
+
+**Options:**
+
+```bash
+# Save to specific file
+php artisan ai:image "A beautiful sunset" --output=output.png
+
+# Save to specific directory
+php artisan ai:image "A beautiful sunset" --dir=images
+
+# Generate 3 images
+php artisan ai:image "A beautiful sunset" --count=3
+
+# Save metadata JSON with generation details
+php artisan ai:image "A beautiful sunset" --metadata
+
+# Custom timeout in seconds
+php artisan ai:image "A beautiful sunset" --timeout=180
+```
+
+### Modify Images
+
+Modify and enhance existing images:
+
+```bash
+php artisan ai:imagemod /path/to/image.png "Make it brighter and more vibrant"
+```
+
+The command will prompt you to select:
+
+- **Quality**: high, medium, or low
+- **Aspect Ratio**: square, portrait, landscape, or keep-original
+- **Count**: 1-4 variations to generate
+
+**Options:**
+
+```bash
+# Save to specific file
+php artisan ai:imagemod image.png "Make it brighter" --output=brightened.png
+
+# Save to specific directory
+php artisan ai:imagemod image.png "Make it brighter" --dir=modified
+
+# Generate 2 variations
+php artisan ai:imagemod image.png "Make it brighter" --count=2
+
+# Save metadata JSON with modification details
+php artisan ai:imagemod image.png "Make it brighter" --metadata
+
+# Custom timeout in seconds
+php artisan ai:imagemod image.png "Make it brighter" --timeout=180
 ```
 
 ## Command Details
@@ -187,6 +255,118 @@ The generated documentation includes:
 - Usage examples with code blocks
 - Important notes and edge cases
 - Related files references
+
+---
+
+### ai:image
+
+```bash
+php artisan ai:image {prompt} {options}
+```
+
+Generates AI-powered images from text descriptions.
+
+**Arguments:**
+
+- `prompt` - Description or prompt for the image to generate
+
+**Options:**
+
+- `--output=PATH` - Save to a specific file path
+- `--dir=PATH` - Save to a specific directory (defaults to project root)
+- `--count=N` - Generate 1-4 images at once (default: 1)
+- `--timeout=N` - HTTP timeout in seconds (default: 120)
+- `--metadata` - Save generation metadata to JSON file
+
+**Example:**
+
+```bash
+php artisan ai:image "A serene mountain landscape at sunset"
+
+Select image quality:
+  [0] high
+  [1] medium
+  [2] low
+ > 0
+
+Select aspect ratio:
+  [0] square
+  [1] portrait
+  [2] landscape
+ > 2
+
+✓ Successfully generated image!
+1. /Users/hardik/laravel-php/laravel-ai-cli/IMAGE_2026-02-07_15-30-45_1.png
+📋 Metadata saved to: /Users/hardik/laravel-php/laravel-ai-cli/metadata_2026-02-07_15-30-45.json
+```
+
+**Batch Generation:**
+
+```bash
+# Generate 3 images at once
+php artisan ai:image "A futuristic city" --count=3 --metadata
+```
+
+---
+
+### ai:imagemod
+
+```bash
+php artisan ai:imagemod {image} {modification} {options}
+```
+
+Modifies and enhances existing images using AI.
+
+**Arguments:**
+
+- `image` - Path to the image file to modify
+- `modification` - Description of modifications to apply
+
+**Options:**
+
+- `--output=PATH` - Save to a specific file path
+- `--dir=PATH` - Save to a specific directory (defaults to project root)
+- `--count=N` - Generate 1-4 variations (default: 1)
+- `--timeout=N` - HTTP timeout in seconds (default: 120)
+- `--metadata` - Save modification metadata to JSON file
+
+**Supported Image Formats:**
+
+- JPEG (.jpg, .jpeg)
+- PNG (.png)
+- GIF (.gif)
+- WebP (.webp)
+- SVG (.svg)
+
+**Example:**
+
+```bash
+php artisan ai:imagemod image.png "Make it more vibrant and increase contrast"
+
+Select image quality:
+  [0] high
+  [1] medium
+  [2] low
+ > 0
+
+Select aspect ratio:
+  [0] square
+  [1] portrait
+  [2] landscape
+  [3] keep-original
+ > 3
+
+✓ Successfully generated image modification!
+1. /Users/hardik/laravel-php/laravel-ai-cli/IMAGE_MOD_2026-02-07_15-31-22_1.png
+📋 Metadata saved to: /Users/hardik/laravel-php/laravel-ai-cli/metadata_2026-02-07_15-31-22.json
+```
+
+**Multiple Variations:**
+
+```bash
+# Create 2 variations of the modified image
+php artisan ai:imagemod image.png "Make it brighter" --count=2 --metadata
+```
 
 ## Package Structure
 

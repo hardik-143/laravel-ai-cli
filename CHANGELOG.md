@@ -5,6 +5,32 @@ All notable changes to the Laravel AI CLI package will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-02-07
+
+### Added
+
+- **`ai:image`** - Generate images from text descriptions using AI
+- **`ai:imagemod`** - Modify and enhance existing images with AI
+- Interactive quality selection (high, medium, low) for image commands
+- Interactive aspect ratio selection (square, portrait, landscape) for generated images
+- Batch image generation (1-4 images per command with `--count` option)
+- Custom output file paths with `--output` option
+- Custom output directories with `--dir` option
+- Optional metadata JSON logging with `--metadata` flag to track generation details
+- Progress bar display during image generation
+- Automatic unique variation IDs to ensure diverse results on repeated prompts
+- Full Laravel AI SDK integration for image generation and modification
+
+### Features
+
+- Interactive prompts for image quality and aspect ratio
+- Batch processing up to 4 images in a single command
+- File path customization (output file or directory)
+- Optional metadata tracking (timestamp, settings, generated files)
+- Automatic filename generation with timestamps
+- File validation for image modification (JPEG, PNG, GIF, WebP, SVG)
+- Comprehensive error handling and user feedback
+
 ## [1.0.1] - 2026-02-06
 
 #### Commands

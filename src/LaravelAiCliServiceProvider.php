@@ -7,6 +7,8 @@ use LaravelAiCli\Commands\{
     AskCommand,
     DocumentCommand,
     ExplainCommand,
+    ImageCommand,
+    ImageModCommand,
     OptimizeCommand,
     RefactorCommand,
     ReviewCommand
@@ -24,6 +26,8 @@ class LaravelAiCliServiceProvider extends ServiceProvider
                 AskCommand::class,
                 DocumentCommand::class,
                 ExplainCommand::class,
+                ImageCommand::class,
+                ImageModCommand::class,
                 OptimizeCommand::class,
                 RefactorCommand::class,
                 ReviewCommand::class,
