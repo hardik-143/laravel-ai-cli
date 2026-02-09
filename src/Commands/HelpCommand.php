@@ -34,7 +34,7 @@ class HelpCommand extends Command
         $this->line('<fg=green;options=bold>📦 Package Information:</>');
         $this->line('  <fg=white;options=bold>Name:</> <fg=cyan>laravel-ai/cli</>');
         $this->line('  <fg=white;options=bold>Description:</> <fg=cyan>AI-powered CLI tools for Laravel using Laravel AI SDK</>');
-        $this->line('  <fg=white;options=bold>Version:</> <fg=cyan>v1.0.3</>');
+        $this->line('  <fg=white;options=bold>Version:</> <fg=cyan>v1.0.4</>');
         $this->line('  <fg=white;options=bold>License:</> <fg=cyan>MIT</>');
         $this->line('');
     }
