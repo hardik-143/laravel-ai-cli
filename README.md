@@ -4,6 +4,7 @@ AI-powered CLI tools for Laravel using the Laravel AI SDK. This package provides
 
 ## Features
 
+- **Help Command** (`ai`) - Display comprehensive help information and all available commands
 - **Ask Agent** (`ai:ask`) - Ask AI a question about your code or any topic
 - **Explain Agent** (`ai:explain`) - Understand application errors and log files
 - **Review Agent** (`ai:review`) - Get code reviews from an AI senior engineer
@@ -42,6 +43,16 @@ OPENAI_API_KEY=sk-proj-your-api-key-here
 **Coming Soon:** More providers including Anthropic Claude, Google Gemini, and Cohere will be integrated in upcoming releases.
 
 ## Usage
+
+### Get Help
+
+Display comprehensive help information and all available commands:
+
+```bash
+php artisan ai
+```
+
+This will show package information, version details, and usage examples for all available commands.
 
 ### Ask a Question
 
